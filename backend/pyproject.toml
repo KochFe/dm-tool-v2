@@ -1,0 +1,24 @@
+[project]
+name = "dmv2-backend"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.18.5",
+    "asyncpg>=0.31.0",
+    "fastapi[standard]>=0.139.0",
+    "pydantic-settings>=2.14.2",
+    "sqlalchemy[asyncio]>=2.0.51",
+    "uvicorn[standard]>=0.49.0",
+]
+
+[dependency-groups]
+dev = [
+    "aiosqlite>=0.22.1",
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
