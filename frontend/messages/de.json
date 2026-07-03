@@ -1,0 +1,15 @@
+{
+  "Landing": {
+    "title": "DM Co-Pilot",
+    "tagline": "Dein Kampagnen-Hub wird geschmiedet.",
+    "status": "Walking Skeleton — Meilenstein M0"
+  },
+  "Theme": {
+    "toggle": "Farbschema umschalten"
+  },
+  "Locale": {
+    "label": "Sprache",
+    "en": "English",
+    "de": "Deutsch"
+  }
+}
