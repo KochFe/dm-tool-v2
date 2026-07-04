@@ -6,3 +6,5 @@ A Dungeon Master assistant built around the session lifecycle: prep a session, r
 - `frontend/` — Next.js 15 + TypeScript + Tailwind, English/German, light/dark
 - Local dev: `docker compose up`
 - Deploy: push to `main` → CI → `https://dmv2.kochfe.de`
+
+Live at https://dmv2.kochfe.de.
