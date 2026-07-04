@@ -1,0 +1,51 @@
+name: dmv2
+
+services:
+  db:
+    image: postgres:17-alpine
+    env_file: .env.production
+    environment:
+      POSTGRES_USER: dmv2
+      POSTGRES_DB: dmv2
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dmv2 -d dmv2"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    env_file: .env.production
+    ports:
+      - "127.0.0.1:8100:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      default:
+      dmtool_shared:
+        aliases:
+          - dmv2-backend
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:3100:3000"
+    networks:
+      default:
+      dmtool_shared:
+        aliases:
+          - dmv2-frontend
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+
+networks:
+  default:
+  dmtool_shared:
+    external: true

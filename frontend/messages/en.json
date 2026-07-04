@@ -1,0 +1,15 @@
+{
+  "Landing": {
+    "title": "DM Co-Pilot",
+    "tagline": "Your campaign hub is being forged.",
+    "status": "Walking skeleton — milestone M0"
+  },
+  "Theme": {
+    "toggle": "Toggle color theme"
+  },
+  "Locale": {
+    "label": "Language",
+    "en": "English",
+    "de": "Deutsch"
+  }
+}
