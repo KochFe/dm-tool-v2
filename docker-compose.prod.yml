@@ -24,13 +24,28 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    networks:
+      default:
+      dmtool_shared:
+        aliases:
+          - dmv2-backend
     restart: unless-stopped
 
   frontend:
     build: ./frontend
     ports:
       - "127.0.0.1:3100:3000"
+    networks:
+      default:
+      dmtool_shared:
+        aliases:
+          - dmv2-frontend
     restart: unless-stopped
 
 volumes:
   pgdata:
+
+networks:
+  default:
+  dmtool_shared:
+    external: true
